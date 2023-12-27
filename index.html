@@ -62,7 +62,7 @@
                   </div>
 
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block">Hong Kong University of Science and Technology<br>Preprint</span>
+                    <span class="author-block">The Hong Kong University of Science and Technology<br>Preprint</span>
                     <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution <sup>^</sup>Corresponding to czhengac@connect.ust.hk</small></span>
                   </div>
 
@@ -70,7 +70,7 @@
                     <div class="publication-links">
                          <!-- Arxiv PDF link -->
                       <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        <a href="https://arxiv.org/pdf/2312.07586.pdf" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
@@ -79,20 +79,9 @@
                       </a>
                     </span>
 
-                    <!-- Supplementary PDF link -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
                   <!-- Github link -->
                   <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    <a href="https://github.com/scraed/CharacteristicGuidanceWebUI" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -103,7 +92,7 @@
 
                 <!-- ArXiv abstract Link -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  <a href="https://arxiv.org/abs/2312.07586" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
@@ -145,7 +134,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            Popular guidance for denoising diffusion probabilistic model (DDPM) linearly combines distinct conditional models together to provide enhanced control over samples. However, this approach overlooks nonlinear effects that become significant when guidance scale is large. To address this issue, we propose characteristic guidance, a novel method that provides non-linear correction for classifier-free guided DDPMs. Such correction forces the guided DDPMs to respect the Fokker-Planck equation of their underlying diffusion process, in a way that is first-principle, training-free, derivative-free, and compatible with existing sampling methods. Experiments show that characteristic guidance is robust to various applications, offers enhanced control over sample generation, suppresses color and exposure issues even for latent space sampling, and can handle physics problems such as the phase transitions of magnets.
           </p>
         </div>
       </div>
@@ -275,7 +264,14 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
+      <pre><code>@misc{zheng2023characteristic,
+      title={Characteristic Guidance: Non-linear Correction for DDPM at Large Guidance Scale}, 
+      author={Candi Zheng and Yuan Lan},
+      year={2023},
+      eprint={2312.07586},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}</code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
