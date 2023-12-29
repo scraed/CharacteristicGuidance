@@ -52,7 +52,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Characteristic Guidance: Non-linear Correction for Diffusion Model at Large Guidance Scale</h1>
+            <h1 class="title is-3 publication-title">Characteristic Guidance: Non-linear Correction for Diffusion Model at Large Guidance Scale</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
@@ -61,8 +61,8 @@
                   <a href="https://hk.linkedin.com/in/yuan-lan-21095016b" target="_blank">Yuan Lan</a><sup>*</sup>,</span>
                   </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">The Hong Kong University of Science and Technology<br>Preprint</span>
+                  <div class="is-size-6 publication-authors">
+                    <span class="author-block">The Hong Kong University of Science and Technology</span>
                     <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution <sup>^</sup>Corresponding to czhengac@connect.ust.hk</small></span>
                   </div>
 
@@ -117,7 +117,7 @@
       <div class="item">
         <!-- Your image here -->
         <img src="static/images/StrawberryPancake.PNG" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
+        <h2 class="subtitle is-size-7 has-text-left">
           strawberry pancake <br>
           Batch size: 4 <br>
           Steps: 20, Sampler: UniPC, CFG scale: 30, Seed: 669228313, Size: 512x512, Model hash: c0d1994c73, Model: realisticVisionV20_v20, VAE hash: 735e4c3a44, VAE: vae-ft-mse-840000-ema-pruned.safetensors, <br>
@@ -128,7 +128,7 @@
        <div class="item">
         <!-- Your image here -->
         <img src="static/images/A Party with Four Dogs.PNG" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
+        <h2 class="subtitle is-size-7 has-text-left">
           a birthday party with four dogs <br>
           Batch size: 4 <br>
           Steps: 20, Sampler: UniPC, CFG scale: 10, Seed: 2693088926, Size: 512x512, Model hash: c0d1994c73, Model: realisticVisionV20_v20, VAE hash: 735e4c3a44, VAE: vae-ft-mse-840000-ema-pruned.safetensors, <br>
@@ -139,7 +139,7 @@
       <div class="item">
         <!-- Your image here -->
         <img src="static/images/1girl earring.PNG" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
+        <h2 class="subtitle is-size-7 has-text-left">
           1girl, earring <br>
           Batch size: 4 <br>
           Steps: 40, Sampler: DPM++ 2M Karras, CFG scale: 30, Seed: 209458356, Size: 512x512, Model hash: 00bafa0e71, Model: anyloraCheckpoint_novaeFp16, VAE hash: 735e4c3a44, VAE: vae-ft-mse-840000-ema-pruned.safetensors <br> 
@@ -150,7 +150,7 @@
      <div class="item">
       <!-- Your image here -->
       <img src="static/images/lake night_sky meteor makoto_shinkai.PNG" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
+      <h2 class="subtitle is-size-7 has-text-left">
         lake, night_sky, meteor, makoto_shinkai <br>
         Batch size: 1 <br>
         Steps: 40, Sampler: DPM++ 2M Karras, CFG scale: 30, Seed: 3255477725, Size: 1024x256, Model hash: 1a189f0be6, Model: v1-5-pruned, VAE hash: 735e4c3a44, VAE: vae-ft-mse-840000-ema-pruned.safetensors, <br>
@@ -166,10 +166,10 @@
 <!-- Paper abstract -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
+    <div class="columns is-centered has-text-left">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
+        <div class="content is-size-6 has-text-justified">
           <p>
             Popular guidance for denoising diffusion probabilistic model (DDPM) linearly combines distinct conditional models together to provide enhanced control over samples. However, this approach overlooks nonlinear effects that become significant when guidance scale is large. To address this issue, we propose characteristic guidance, a novel method that provides non-linear correction for classifier-free guided DDPMs. Such correction forces the guided DDPMs to respect the Fokker-Planck equation of their underlying diffusion process, in a way that is first-principle, training-free, derivative-free, and compatible with existing sampling methods. Experiments show that characteristic guidance is robust to various applications, offers enhanced control over sample generation, suppresses color and exposure issues even for latent space sampling, and can handle physics problems such as the phase transitions of magnets.
           </p>
