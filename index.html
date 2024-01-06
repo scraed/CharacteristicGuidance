@@ -163,6 +163,18 @@
           Version: v1.6.1
        </h2>
      </div>
+     <div class="item">
+      <!-- Your image here -->
+      <img src="static/images/lake night_sky meteor makoto_shinkai.jpg" alt="MY ALT TEXT"/>
+      <h2 class="subtitle is-size-7 has-text-left">
+        <b>lake, night_sky, meteor, makoto_shinkai</b> <br>
+        Batch size: 1 <br>
+        Steps: 40, Sampler: DPM++ 2M Karras, CFG scale: 30, Seed: 3255477725, Size: 1024x256, Model hash: 1a189f0be6, Model: v1-5-pruned, VAE hash: 735e4c3a44, VAE: vae-ft-mse-840000-ema-pruned.safetensors, <br>
+        Characteristic Guidance: <br>
+        Regularization Strength: 1,  Regularization Range Over Time: 1,  Max Num. Characteristic Iteration: 30,  Num. Basis for Correction: 1,  Reuse Correction of Previous Iteration: 0,  Log 10 Tolerance for Iteration Convergence: -4,  Iteration Step Size: 1,  Regularization Annealing Speed: 0.4,  Regularization Annealing Strength: 0.5,  AA Iteration Memory Size: 2, <br>
+        Version: v1.6.1
+      </h2>
+    </div>
        <div class="item">
         <!-- Your image here -->
         <img src="static/images/A Party with Four Dogs.jpg" alt="MY ALT TEXT"/>
@@ -187,24 +199,37 @@
           Version: v1.6.1
         </h2>
       </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/lake night_sky meteor makoto_shinkai.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle is-size-7 has-text-left">
-        <b>lake, night_sky, meteor, makoto_shinkai</b> <br>
-        Batch size: 1 <br>
-        Steps: 40, Sampler: DPM++ 2M Karras, CFG scale: 30, Seed: 3255477725, Size: 1024x256, Model hash: 1a189f0be6, Model: v1-5-pruned, VAE hash: 735e4c3a44, VAE: vae-ft-mse-840000-ema-pruned.safetensors, <br>
-        Characteristic Guidance: <br>
-        Regularization Strength: 1,  Regularization Range Over Time: 1,  Max Num. Characteristic Iteration: 30,  Num. Basis for Correction: 1,  Reuse Correction of Previous Iteration: 0,  Log 10 Tolerance for Iteration Convergence: -4,  Iteration Step Size: 1,  Regularization Annealing Speed: 0.4,  Regularization Annealing Strength: 0.5,  AA Iteration Memory Size: 2, <br>
-        Version: v1.6.1
-      </h2>
-    </div>
   </div>
 </div>
 </div>
 </section>
 <!-- End image carousel -->
 
+
+
+<!-- Paper abstract -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-left">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4">Preliminary Support for ControlNet</h2>
+        <div class="content is-size-6 has-text-justified">
+          <div class="item">
+            <!-- Your image here -->
+            <img src="static/images/1girl kimono.jpg" alt="MY ALT TEXT"/>
+            <p class="content is-size-6 has-text-justified">
+              We are excited to announce that the characteristic guidance webUI extension now preliminarily supports ControlNet. 
+              This new integration offering users the ability to leverage ControlNet's robust control capabilities within the familiar webUI environment.  
+              Please note that as this is an initial integration, some features may still be in development, and users might encounter limitations or issues. We are committed to continuously updating and improving this integration and look forward to the community's input and support in this journey.
+
+              Stay tuned for more updates, and welcome to contribute to our extension development!  
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
   
 <!-- Paper abstract -->
@@ -217,9 +242,9 @@
           <div class="item">
             <!-- Your image here -->
             <img src="static/images/CHtheory.PNG" alt="MY ALT TEXT"/>
-            <h2 class="content is-size-7 has-text-left">
+            <p class="content is-size-6 has-text-left">
               In comparing classifier-free guidance with characteristic guidance, we examine their behavior during the sampling process at time t. Classifier-free guidance applies a linear combination of positive and negative prompts at a given point along the sampling trajectory. This approach, however, does not adhere to the non-linear dynamics of the Fokker-Planck equation of scores. On the other hand, characteristic guidance leverages the characteristic line of the Fokker-Planck equation of scores, effectively bring the linear combination back to the initial time (t=0). At this point, the Fokker-Planck equation of scores permits linear combinations, thus ensuring that characteristic guidance adheres to the equation’s constraints.
-            </h2>
+            </p>
           </div>
         </div>
       </div>
