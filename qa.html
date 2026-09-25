@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Questions and answers about Characteristic Guidance, a training-free nonlinear correction for classifier-free guidance at large CFG scales in diffusion models and Stable Diffusion.">
+  <meta property="og:title" content="Characteristic Guidance Questions and Answers">
+  <meta property="og:description" content="A concise guide to the motivation, method, compatibility, and limitations of Characteristic Guidance for diffusion models at large CFG scales.">
+  <meta property="og:url" content="https://scraed.github.io/CharacteristicGuidance/qa.html">
+  <meta property="og:image" content="https://scraed.github.io/CharacteristicGuidance/static/images/1girl_handstand_sportswear_gym.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Characteristic Guidance Questions and Answers">
+  <meta name="twitter:description" content="A concise guide to Characteristic Guidance for classifier-free guidance and Stable Diffusion at large CFG scales.">
+  <meta name="twitter:image" content="https://scraed.github.io/CharacteristicGuidance/static/images/1girl_handstand_sportswear_gym.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Characteristic Guidance Questions and Answers</title>
+  <link rel="icon" type="image/x-icon" href="static/images/witchbearlogo.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+</head>
+<body>
+  <main class="qa-page">
+    <header class="qa-header">
+      <p class="qa-eyebrow">Characteristic Guidance</p>
+      <h1 class="title is-2">Questions &amp; Answers</h1>
+      <p class="qa-lede">
+        A concise guide to the motivation, formulation, compatibility, and practical limitations of Characteristic Guidance for diffusion models at large classifier-free guidance (CFG) scales.
+      </p>
+      <div class="qa-links">
+        <a class="button is-dark is-rounded" href="index.html">
+          <span class="icon"><i class="fas fa-arrow-left"></i></span>
+          <span>Project Page</span>
+        </a>
+        <a class="button is-light is-rounded" href="https://arxiv.org/abs/2312.07586" target="_blank" rel="noopener">
+          <span class="icon"><i class="ai ai-arxiv"></i></span>
+          <span>Paper</span>
+        </a>
+        <a class="button is-light is-rounded" href="https://github.com/scraed/CharacteristicGuidanceWebUI" target="_blank" rel="noopener">
+          <span class="icon"><i class="fab fa-github"></i></span>
+          <span>WebUI Extension</span>
+        </a>
+      </div>
+    </header>
+
+    <section class="qa-list" aria-labelledby="questions-heading">
+      <h2 id="questions-heading" class="title is-3">Common Questions</h2>
+
+      <article class="qa-item">
+        <h3>What is Characteristic Guidance?</h3>
+        <p>
+          Characteristic Guidance is a training-free and derivative-free nonlinear correction for classifier-free guidance in diffusion models. It is designed to improve guided sampling when the CFG scale is large.
+        </p>
+      </article>
+
+      <article class="qa-item">
+        <h3>What problem does it address?</h3>
+        <p>
+          Standard classifier-free guidance linearly combines conditional and unconditional model predictions. The paper argues that nonlinear effects become important at large guidance scales, so this linear combination can lead to irregularities in generated samples and weaker control over prompt semantics.
+        </p>
+      </article>
+
+      <article class="qa-item">
+        <h3>What is the theoretical limitation of classifier-free guidance, and how does Characteristic Guidance address it?</h3>
+        <p>
+          At a noisy diffusion time, classifier-free guidance uses a linear combination of conditional and unconditional predictions. The paper shows that, especially at large guidance scales, this combination generally does not follow the nonlinear score dynamics described by the Fokker–Planck equation. The resulting mismatch can contribute to irregularities in generated samples, including color, exposure, and structural artifacts.
+        </p>
+        <p>
+          Characteristic Guidance identifies this mismatch by analyzing the guided process along the characteristic lines of the score Fokker–Planck equation. It then constructs a nonlinear correction to the classifier-free guidance update, bringing the combination back to a regime where the diffusion dynamics permit the required linear relationship. This correction is designed to be training-free, derivative-free, and compatible with existing sampling methods.
+        </p>
+      </article>
+
+      <article class="qa-item">
+        <h3>How does the correction work?</h3>
+        <p>
+          Characteristic Guidance uses the method of characteristics to construct a nonlinear correction related to the score Fokker–Planck equation. The correction is applied during sampling so that the guided process better respects the underlying diffusion dynamics.
+        </p>
+      </article>
+
+      <article class="qa-item">
+        <h3>Does Characteristic Guidance require additional training?</h3>
+        <p>
+          No. The method is designed to work with a pretrained diffusion model without training a new guidance model. The paper also describes the correction as derivative-free, so it does not require differentiating an external image-space objective through the model during inference.
+        </p>
+      </article>
+
+      <article class="qa-item">
+        <h3>Is it compatible with Stable Diffusion?</h3>
+        <p>
+          Yes. The official implementation is a Stable Diffusion WebUI extension for AUTOMATIC1111. The project page provides examples for txt2img and img2img workflows and links to the implementation and paper.
+        </p>
+      </article>
+
+      <article class="qa-item">
+        <h3>How is it different from Dynamic Thresholding?</h3>
+        <p>
+          The project describes them as distinct methods. Dynamic Thresholding mainly clips and rescales the model output to control saturation and mimic lower CFG scales. Characteristic Guidance instead computes a nonlinear correction based on the diffusion dynamics and is intended to operate at the selected guidance scale.
+        </p>
+      </article>
+
+      <article class="qa-item">
+        <h3>Does the implementation support ControlNet or Forge?</h3>
+        <p>
+          The WebUI implementation includes preliminary support for ControlNet and Forge. These integrations are described as preliminary, and the repository documents compatibility issues and cases where convergence may not be guaranteed.
+        </p>
+      </article>
+
+      <article class="qa-item">
+        <h3>What are the practical limitations?</h3>
+        <p>
+          Characteristic Guidance can be slower than standard classifier-free guidance because the correction is solved iteratively. The implementation includes convergence checks and fallback behavior for cases where the correction does not converge reliably.
+        </p>
+      </article>
+
+      <article class="qa-item">
+        <h3>Where can I read the paper and use the implementation?</h3>
+        <p>
+          The paper is available on <a href="https://arxiv.org/abs/2312.07586" target="_blank" rel="noopener">arXiv</a> and was published at ICML 2024. The practical implementation is available as the <a href="https://github.com/scraed/CharacteristicGuidanceWebUI" target="_blank" rel="noopener">Characteristic Guidance WebUI extension</a> for AUTOMATIC1111.
+        </p>
+      </article>
+    </section>
+
+    <footer class="qa-footer">
+      <p>
+        For the formal method, experiments, and citation information, see the
+        <a href="index.html#abstract">project page</a> and the
+        <a href="https://proceedings.mlr.press/v235/zheng24f.html" target="_blank" rel="noopener">PMLR paper record</a>.
+      </p>
+    </footer>
+  </main>
+
+  <style>
+    :root {
+      --qa-ink: #182033;
+      --qa-muted: #5c6474;
+      --qa-line: #e5e8ee;
+      --qa-accent: #3273dc;
+    }
+
+    body {
+      color: var(--qa-ink);
+      background: #fff;
+    }
+
+    .qa-page {
+      width: min(100% - 2rem, 860px);
+      margin: 0 auto;
+      padding: 4.5rem 0 5rem;
+    }
+
+    .qa-header {
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--qa-line);
+    }
+
+    .qa-eyebrow {
+      margin-bottom: 0.7rem;
+      color: var(--qa-accent);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .qa-header .title {
+      margin-bottom: 1rem;
+      color: var(--qa-ink);
+    }
+
+    .qa-lede {
+      max-width: 48rem;
+      color: var(--qa-muted);
+      font-size: 1.1rem;
+      line-height: 1.75;
+    }
+
+    .qa-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1.6rem;
+    }
+
+    .qa-list {
+      padding-top: 3rem;
+    }
+
+    .qa-list > .title {
+      margin-bottom: 0.5rem;
+      color: var(--qa-ink);
+    }
+
+    .qa-item {
+      padding: 1.7rem 0 1.8rem;
+      border-bottom: 1px solid var(--qa-line);
+    }
+
+    .qa-item h3 {
+      margin-bottom: 0.7rem;
+      color: var(--qa-ink);
+      font-size: 1.25rem;
+      line-height: 1.35;
+    }
+
+    .qa-item p,
+    .qa-footer p {
+      color: var(--qa-muted);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .qa-item a,
+    .qa-footer a {
+      color: var(--qa-accent);
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
+
+    .qa-footer {
+      padding-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .qa-page {
+        width: min(100% - 1.25rem, 860px);
+        padding-top: 2.5rem;
+      }
+
+      .qa-header {
+        padding-bottom: 2.25rem;
+      }
+
+      .qa-lede {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</body>
+</html>
