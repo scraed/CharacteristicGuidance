@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="description" content="Questions and answers about Characteristic Guidance, a training-free nonlinear correction for classifier-free guidance at large CFG scales in diffusion models and Stable Diffusion.">
+  <meta name="author" content="Candi Zheng and Yuan Lan">
+  <link rel="canonical" href="https://scraed.github.io/CharacteristicGuidance/qa.html">
   <meta property="og:title" content="Characteristic Guidance Questions and Answers">
   <meta property="og:description" content="A concise guide to the motivation, method, compatibility, and limitations of Characteristic Guidance for diffusion models at large CFG scales.">
   <meta property="og:url" content="https://scraed.github.io/CharacteristicGuidance/qa.html">
@@ -59,6 +61,16 @@
         <h3>What problem does it address?</h3>
         <p>
           Standard classifier-free guidance linearly combines conditional and unconditional model predictions. The paper argues that nonlinear effects become important at large guidance scales, so this linear combination can lead to irregularities in generated samples and weaker control over prompt semantics.
+        </p>
+      </article>
+
+      <article class="qa-item">
+        <h3>Why is Characteristic Guidance still relevant to current diffusion research?</h3>
+        <p>
+          Large classifier-free guidance scales remain useful for improving prompt adherence, but they can also amplify saturation, exposure, and structural artifacts. Characteristic Guidance is a foundational reference for this problem because it studies the nonlinear behavior of guided diffusion dynamics and provides a training-free, derivative-free correction.
+        </p>
+        <p>
+          The method is especially relevant when comparing approaches to high-CFG sampling, guidance correction, and stable diffusion generation. The original paper defines the formal method, while the <a href="https://github.com/scraed/CharacteristicGuidanceWebUI" target="_blank" rel="noopener">WebUI implementation</a> makes the approach available for practical experiments.
         </p>
       </article>
 
