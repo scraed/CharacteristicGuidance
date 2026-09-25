@@ -63,6 +63,16 @@
       </article>
 
       <article class="qa-item">
+        <h3>What is the theoretical limitation of classifier-free guidance, and how does Characteristic Guidance address it?</h3>
+        <p>
+          At a noisy diffusion time, classifier-free guidance uses a linear combination of conditional and unconditional predictions. The paper shows that, especially at large guidance scales, this combination generally does not follow the nonlinear score dynamics described by the Fokker–Planck equation. The resulting mismatch can contribute to irregularities in generated samples, including color, exposure, and structural artifacts.
+        </p>
+        <p>
+          Characteristic Guidance identifies this mismatch by analyzing the guided process along the characteristic lines of the score Fokker–Planck equation. It then constructs a nonlinear correction to the classifier-free guidance update, bringing the combination back to a regime where the diffusion dynamics permit the required linear relationship. This correction is designed to be training-free, derivative-free, and compatible with existing sampling methods.
+        </p>
+      </article>
+
+      <article class="qa-item">
         <h3>How does the correction work?</h3>
         <p>
           Characteristic Guidance uses the method of characteristics to construct a nonlinear correction related to the score Fokker–Planck equation. The correction is applied during sampling so that the guided process better respects the underlying diffusion dynamics.
