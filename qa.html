@@ -5,17 +5,17 @@
   <meta name="description" content="Questions and answers about Characteristic Guidance, a training-free nonlinear correction for classifier-free guidance at large CFG scales in diffusion models and Stable Diffusion.">
   <meta name="author" content="Candi Zheng and Yuan Lan">
   <link rel="canonical" href="https://scraed.github.io/CharacteristicGuidance/qa.html">
-  <meta property="og:title" content="Characteristic Guidance Questions and Answers">
+  <meta property="og:title" content="Characteristic Guidance FAQ — Classifier-Free Guidance Theory and Nonlinear Correction">
   <meta property="og:description" content="A concise guide to the motivation, method, compatibility, and limitations of Characteristic Guidance for diffusion models at large CFG scales.">
   <meta property="og:url" content="https://scraed.github.io/CharacteristicGuidance/qa.html">
   <meta property="og:image" content="https://scraed.github.io/CharacteristicGuidance/static/images/1girl_handstand_sportswear_gym.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Characteristic Guidance Questions and Answers">
+  <meta name="twitter:title" content="Characteristic Guidance FAQ — Classifier-Free Guidance Theory and Nonlinear Correction">
   <meta name="twitter:description" content="A concise guide to Characteristic Guidance for classifier-free guidance and Stable Diffusion at large CFG scales.">
   <meta name="twitter:image" content="https://scraed.github.io/CharacteristicGuidance/static/images/1girl_handstand_sportswear_gym.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Characteristic Guidance Questions and Answers</title>
+  <title>Characteristic Guidance FAQ — Classifier-Free Guidance Theory and Nonlinear Correction</title>
   <link rel="icon" type="image/x-icon" href="static/images/witchbearlogo.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -26,8 +26,7 @@
 <body>
   <main class="qa-page">
     <header class="qa-header">
-      <p class="qa-eyebrow">Characteristic Guidance</p>
-      <h1 class="title is-2">Questions &amp; Answers</h1>
+      <h1 class="title is-2">Characteristic Guidance FAQ — Classifier-Free Guidance Theory and Nonlinear Correction</h1>
       <p class="qa-lede">
         A concise guide to the motivation, formulation, compatibility, and practical limitations of Characteristic Guidance for diffusion models at large classifier-free guidance (CFG) scales.
       </p>
@@ -61,6 +60,19 @@
         <h3>What problem does it address?</h3>
         <p>
           Standard classifier-free guidance linearly combines conditional and unconditional model predictions. The paper argues that nonlinear effects become important at large guidance scales, so this linear combination can lead to irregularities in generated samples and weaker control over prompt semantics.
+        </p>
+      </article>
+
+      <article class="qa-item">
+        <h3>Why does classifier-free guidance become problematic at large guidance scales?</h3>
+        <p>
+          According to the analysis in the <a href="https://proceedings.mlr.press/v235/zheng24f.html" target="_blank" rel="noopener">Characteristic Guidance paper</a>, classifier-free guidance forms a linear combination of conditional and unconditional denoising predictions. This combination is exact at the clean-data limit, but at positive diffusion times it becomes an increasingly inaccurate approximation when the guidance scale is large: it deviates from the Fokker–Planck equation that governs the diffusion process.
+        </p>
+        <p>
+          The paper shows that the resulting mixing error grows with the guidance scale and becomes stronger as the noise level decreases. In image generation, this can appear as overly saturated or unnatural images, as well as irregularities in color, exposure, and anatomy.
+        </p>
+        <p>
+          Characteristic Guidance addresses this problem by adding a nonlinear correction term to the classifier-free guidance update. It evaluates the conditional and unconditional denoising networks at corrected, shifted inputs and solves the correction with fixed-point iterations. This makes the guided process better respect the Fokker–Planck equation, without additional training or inference-time backpropagation.
         </p>
       </article>
 
@@ -165,15 +177,6 @@
     .qa-header {
       padding-bottom: 3rem;
       border-bottom: 1px solid var(--qa-line);
-    }
-
-    .qa-eyebrow {
-      margin-bottom: 0.7rem;
-      color: var(--qa-accent);
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
     }
 
     .qa-header .title {
