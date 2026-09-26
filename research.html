@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Explore how later research on classifier-free guidance, guidance correction, sampling dynamics, and alternative diffusion guidance methods cites and discusses Characteristic Guidance (ICML 2024).">
+  <meta name="author" content="Candi Zheng and Yuan Lan">
+  <link rel="canonical" href="https://scraed.github.io/CharacteristicGuidance/research.html">
+  <meta property="og:title" content="Characteristic Guidance in Subsequent Diffusion Guidance Research">
+  <meta property="og:description" content="A neutral map of how subsequent work on classifier-free guidance, high guidance scales, nonlinear correction, and flow-based sampling cites and discusses Characteristic Guidance.">
+  <meta property="og:url" content="https://scraed.github.io/CharacteristicGuidance/research.html">
+  <meta property="og:image" content="https://scraed.github.io/CharacteristicGuidance/static/images/1girl_handstand_sportswear_gym.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Characteristic Guidance in Subsequent Diffusion Guidance Research">
+  <meta name="twitter:description" content="A neutral map of how subsequent work on classifier-free guidance, high guidance scales, nonlinear correction, and flow-based sampling cites and discusses Characteristic Guidance.">
+  <meta name="twitter:image" content="https://scraed.github.io/CharacteristicGuidance/static/images/1girl_handstand_sportswear_gym.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Characteristic Guidance in Subsequent Diffusion Guidance Research</title>
+  <link rel="icon" type="image/x-icon" href="static/images/witchbearlogo.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+</head>
+<body>
+  <main class="research-page">
+    <header class="research-header">
+      <h1 class="title is-2">Characteristic Guidance in Subsequent Diffusion Guidance Research</h1>
+      <p class="research-lede">
+        This page surveys subsequent research on classifier-free guidance, high guidance scales, nonlinear guidance correction, sampling dynamics, and flow-based guidance.
+      </p>
+      <div class="research-links">
+        <a class="button is-dark is-rounded" href="index.html">
+          <span class="research-nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false"><path d="M3 10.8 12 3l9 7.8"></path><path d="M5.5 9.8V21h13V9.8"></path><path d="M9.5 21v-6h5v6"></path></svg>
+          </span>
+          <span>Project Page</span>
+        </a>
+        <a class="button is-light is-rounded" href="qa.html">
+          <span class="research-nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="9"></circle><path d="M9.6 9a2.5 2.5 0 1 1 4.3 1.8c-.8.8-1.9 1.2-1.9 2.7"></path><path d="M12 17.2h.01"></path></svg>
+          </span>
+          <span>Theory &amp; FAQ</span>
+        </a>
+        <a class="button is-light is-rounded" href="https://proceedings.mlr.press/v235/zheng24f.html" target="_blank" rel="noopener">
+          <span class="research-nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false"><path d="M6 3.5h8l4 4V20.5H6z"></path><path d="M14 3.5v4h4M8.5 12h7M8.5 15.5h7"></path></svg>
+          </span>
+          <span>Paper</span>
+        </a>
+        <a class="button is-light is-rounded" href="https://github.com/scraed/CharacteristicGuidanceWebUI" target="_blank" rel="noopener">
+          <span class="research-nav-icon" aria-hidden="true">
+            <svg class="research-github-mark" viewBox="0 0 24 24" focusable="false"><path d="M12 2.2a9.8 9.8 0 0 0-3.1 19.1c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.4-1.1.7-1.3-2.2-.3-4.5-1.1-4.5-4.8 0-1.1.4-2 1-2.7-.1-.2-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.5 9.5 0 0 1 5.1 0c2-1.3 2.8-1 2.8-1 .5 1.4.2 2.5.1 2.7.6.7 1 1.6 1 2.7 0 3.7-2.3 4.5-4.5 4.8.4.3.7.9.7 1.8v2.7c0 .3.2.6.7.5A9.8 9.8 0 0 0 12 2.2z"></path></svg>
+          </span>
+          <span>WebUI Extension</span>
+        </a>
+      </div>
+    </header>
+
+    <section class="research-intro" aria-labelledby="research-identity-heading">
+      <h2 id="research-identity-heading" class="title is-3">Research identity</h2>
+      <p>
+        <a href="https://proceedings.mlr.press/v235/zheng24f.html" target="_blank" rel="noopener"><em>Characteristic Guidance: Non-linear Correction for Diffusion Model at Large Guidance Scale</em></a> by Candi Zheng and Yuan Lan was published at ICML 2024. The paper presents a training-free, derivative-free nonlinear correction for classifier-free guidance, derived from the score dynamics and the Fokker–Planck equation.
+      </p>
+      <p class="research-source-links"><a href="https://proceedings.mlr.press/v235/zheng24f.html" target="_blank" rel="noopener">PMLR record</a><span aria-hidden="true">·</span><a href="https://arxiv.org/abs/2312.07586" target="_blank" rel="noopener">arXiv</a><span aria-hidden="true">·</span><a href="index.html">Project page</a><span aria-hidden="true">·</span><a href="qa.html">Theory &amp; FAQ</a></p>
+    </section>
+
+    <section class="research-list" aria-labelledby="research-contexts-heading">
+      <h2 id="research-contexts-heading" class="title is-3">Research contexts</h2>
+
+      <section class="research-section" aria-labelledby="context-a-heading">
+        <h3 id="context-a-heading" class="research-section-title">A. Understanding and reformulating classifier-free guidance</h3>
+
+        <article class="research-item">
+          <h4><a href="https://arxiv.org/abs/2502.07849" target="_blank" rel="noopener">Classifier-Free Guidance: From High-Dimensional Analysis to Generalized Guidance Forms</a></h4>
+          <p class="research-meta">Krunoslav Lehman Pavasovic, Jakob Verbeek, Giulio Biroli, Marc Mezard · arXiv, 2025</p>
+          <p><strong>Research context.</strong> This paper analyzes the distribution induced by CFG in high-dimensional Gaussian-mixture settings. It studies how mean overshoot and variance shrinkage depend on dimensionality, and introduces a nonlinear power-law family of guidance forms.</p>
+          <p><strong>Relation to Characteristic Guidance.</strong> The paper lists characteristic guidance alongside rectified guidance, projected score guidance, second-order CFG, CADS, CFG++, and APG as alternatives to standard CFG. Its own contribution is a high-dimensional analysis and a different nonlinear generalization, so the relation is a comparison within the broader CFG-variant landscape rather than a claim of direct extension.</p>
+        </article>
+
+        <article class="research-item">
+          <h4><a href="https://proceedings.neurips.cc/paper_files/paper/2024/file/5ee7ed60a7e8169012224dec5fe0d27f-Paper-Conference.pdf" target="_blank" rel="noopener">Guiding a Diffusion Model with a Bad Version of Itself</a></h4>
+          <p class="research-meta">Tero Karras, Miika Aittala, Tuomas Kynkäänniemi, Jaakko Lehtinen, Timo Aila, Samuli Laine · NeurIPS 2024</p>
+          <p><strong>Research context.</strong> AutoGuidance studies the quality–variation trade-off of CFG and proposes guiding a stronger diffusion model with a smaller or less-trained version of itself, rather than with an unconditional model.</p>
+          <p><strong>Relation to Characteristic Guidance.</strong> The paper cites Characteristic Guidance in its bibliography as part of the literature on guidance behavior and high-scale corrections. Its proposed mechanism is different: it changes the guiding model rather than applying a nonlinear correction derived from diffusion score dynamics.</p>
+        </article>
+
+        <article class="research-item">
+          <h4><a href="https://ojs.aaai.org/index.php/AAAI/article/view/38397" target="_blank" rel="noopener">DICE: Distilling Classifier-Free Guidance into Text Embeddings</a></h4>
+          <p class="research-meta">Zhenyu Zhou, Defang Chen, Can Wang, Chun Chen, Siwei Lyu · AAAI 2026</p>
+          <p><strong>Research context.</strong> DICE distills the effect of CFG into sharpened text embeddings, aiming to remove the extra model evaluation required by guided sampling while retaining comparable text-to-image quality.</p>
+          <p><strong>Relation to Characteristic Guidance.</strong> In its introduction, DICE cites Characteristic Guidance when discussing how CFG deviates from a normal diffusion sampling path and complicates the analysis of sampling dynamics. DICE addresses the computational and deployment side through embedding distillation; Characteristic Guidance addresses the nonlinear dynamics of the guidance update itself.</p>
+        </article>
+      </section>
+
+      <section class="research-section" aria-labelledby="context-b-heading">
+        <h3 id="context-b-heading" class="research-section-title">B. High-guidance-scale correction and sampling behavior</h3>
+        <article class="research-item">
+          <h4><a href="https://openreview.net/forum?id=e2ONKX6qzJ" target="_blank" rel="noopener">Eliminating Oversaturation and Artifacts of High Guidance Scales in Diffusion Models</a></h4>
+          <p class="research-meta">Seyedmorteza Sadat, Otmar Hilliges, Romann M. Weber · ICLR 2025</p>
+          <p><strong>Research context.</strong> This work revisits the CFG update at high guidance scales, decomposing the update into components parallel and orthogonal to the conditional prediction. It proposes Adaptive Projected Guidance (APG), combining projection, rescaling, and reverse momentum to reduce oversaturation and artifacts.</p>
+          <p><strong>Relation to Characteristic Guidance.</strong> In related work, APG identifies orthogonal projection as having been explored in the context of nonlinear guidance, citing Characteristic Guidance. The papers then take different routes: Characteristic Guidance derives a nonlinear correction from diffusion dynamics, while APG targets the geometry and magnitude of the CFG update to control saturation.</p>
+        </article>
+      </section>
+
+      <section class="research-section" aria-labelledby="context-c-heading">
+        <h3 id="context-c-heading" class="research-section-title">C. Alternative guidance formulations for diffusion and flow models</h3>
+        <article class="research-item">
+          <h4><a href="https://papers.neurips.cc/paper_files/paper/2025/hash/db174d373133dcc6bf83bc98e4b681f8-Abstract-Conference.html" target="_blank" rel="noopener">Rectified-CFG++ for Flow Based Models</a></h4>
+          <p class="research-meta">Shreshth Saini, Shashank Gupta, Alan C. Bovik · NeurIPS 2025</p>
+          <p><strong>Research context.</strong> Rectified-CFG++ studies the off-manifold drift that can occur when CFG is applied to rectified-flow models. It proposes a predictor–corrector scheme that first follows the conditional flow and then applies a scheduled correction using conditional and unconditional velocities.</p>
+          <p><strong>Relation to Characteristic Guidance.</strong> The paper places Characteristic Guidance among earlier CFG modifications intended to alleviate high-scale artifacts, while distinguishing its own flow-specific formulation. This provides a direct citation link from diffusion guidance corrections to later work focused on deterministic flow trajectories.</p>
+        </article>
+
+        <article class="research-item">
+          <h4><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Wang_CFG-Ctrl_Control-Based_Classifier-Free_Diffusion_Guidance_CVPR_2026_paper.html" target="_blank" rel="noopener">CFG-Ctrl: Control-Based Classifier-Free Diffusion Guidance</a></h4>
+          <p class="research-meta">Hanyang Wang, Yiyang Liu, Jiawei Chi, Fangfu Liu, Ran Xue, Yueqi Duan · CVPR 2026</p>
+          <p><strong>Research context.</strong> CFG-Ctrl reinterprets classifier-free guidance as feedback control over a continuous-time generative flow. Its SMC-CFG variant uses nonlinear feedback and sliding-mode control to improve stability at large guidance scales.</p>
+          <p><strong>Relation to Characteristic Guidance.</strong> CFG-Ctrl cites Characteristic Guidance in its discussion of guidance alternatives and places it within a family of methods that refine the standard linear CFG rule. The paper’s own framework is control-theoretic and flow-oriented, whereas Characteristic Guidance is derived from the score and Fokker–Planck dynamics of diffusion.</p>
+        </article>
+      </section>
+    </section>
+
+    <section class="research-summary" aria-labelledby="summary-heading">
+      <h2 id="summary-heading" class="title is-3">At a glance</h2>
+      <div class="table-container">
+        <table class="table is-fullwidth">
+          <thead><tr><th>Research direction</th><th>Later work</th><th>How it relates to Characteristic Guidance</th></tr></thead>
+          <tbody>
+            <tr><td>CFG theory and nonlinear forms</td><td>High-dimensional CFG analysis</td><td>Places characteristic guidance among nonlinear CFG alternatives.</td></tr>
+            <tr><td>Guidance model design</td><td>AutoGuidance</td><td>Cites the work while using a different guiding-model strategy.</td></tr>
+            <tr><td>High-scale artifacts</td><td>APG</td><td>Discusses nonlinear guidance and follows a projection-based route.</td></tr>
+            <tr><td>CFG efficiency</td><td>DICE</td><td>Cites the work when discussing CFG sampling dynamics and overhead.</td></tr>
+            <tr><td>Flow-based guidance</td><td>Rectified-CFG++ and CFG-Ctrl</td><td>Position the work among prior guidance corrections before proposing flow-specific formulations.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="research-landscape" aria-labelledby="landscape-heading">
+      <h2 id="landscape-heading" class="title is-3">How the research landscape evolved</h2>
+      <p>A common thread in subsequent work is that classifier-free guidance is useful but not equivalent to simply sampling the original conditional diffusion process at every noisy time. Researchers have therefore studied the gap from several complementary viewpoints.</p>
+      <p>One direction makes the behavior more explicit through theory: high-dimensional analyses characterize when CFG distortion becomes small, while other work studies predictor–corrector interpretations and the relationship between guidance strength, diversity, and sampling dynamics.</p>
+      <p>A second direction modifies the inference update directly. These methods include nonlinear corrections, projection or rescaling of the guidance direction, time-dependent schedules, and distillation into a single model evaluation. Their objectives overlap in the broad problem of making strong guidance more stable or efficient, but their assumptions and mechanisms differ.</p>
+      <p>With the adoption of rectified flow and flow-matching models, a third direction treats guidance as a problem in deterministic ODE trajectories and learned manifolds. Rectified-CFG++ and CFG-Ctrl illustrate this shift toward flow-specific geometry, feedback, and stability analysis.</p>
+    </section>
+
+    <section class="research-topics" aria-labelledby="topics-heading">
+      <h2 id="topics-heading" class="title is-3">Related research topics</h2>
+      <p class="research-topic-list"><a href="https://github.com/charrywhite/Awesome-Diffusion-Guidance" target="_blank" rel="noopener">Awesome Diffusion Guidance</a><span aria-hidden="true">·</span><span>classifier-free guidance</span><span aria-hidden="true">·</span><span>high guidance scales</span><span aria-hidden="true">·</span><span>nonlinear diffusion guidance</span><span aria-hidden="true">·</span><span>score dynamics</span><span aria-hidden="true">·</span><span>rectified flow</span><span aria-hidden="true">·</span><span>flow matching</span></p>
+    </section>
+
+    <section class="research-original" aria-labelledby="original-paper-heading">
+      <h2 id="original-paper-heading" class="title is-3">Original paper</h2>
+      <p><strong>Characteristic Guidance: Non-linear Correction for Diffusion Model at Large Guidance Scale</strong><br>Candi Zheng and Yuan Lan<br>Proceedings of the 41st International Conference on Machine Learning, 2024</p>
+      <p class="research-source-links"><a href="https://proceedings.mlr.press/v235/zheng24f.html" target="_blank" rel="noopener">PMLR</a><span aria-hidden="true">·</span><a href="https://arxiv.org/abs/2312.07586" target="_blank" rel="noopener">arXiv</a><span aria-hidden="true">·</span><a href="https://github.com/scraed/CharacteristicGuidanceWebUI" target="_blank" rel="noopener">WebUI implementation</a></p>
+      <pre class="research-bibtex"><code>@inproceedings{zheng2024characteristic,
+  title={Characteristic Guidance: Non-linear Correction for Diffusion Model at Large Guidance Scale},
+  author={Zheng, Candi and Lan, Yuan},
+  booktitle={Proceedings of the 41st International Conference on Machine Learning},
+  pages={61386--61412},
+  year={2024},
+  publisher={PMLR},
+  url={https://proceedings.mlr.press/v235/zheng24f.html}
+}</code></pre>
+    </section>
+
+    <footer class="research-footer"><p>This page is maintained as a research-navigation and citation-context resource. For the formal method and experimental details, see the <a href="index.html#abstract">project page</a> and the <a href="https://proceedings.mlr.press/v235/zheng24f.html" target="_blank" rel="noopener">original paper</a>.</p></footer>
+  </main>
+
+  <style>
+    :root { --research-ink: #182033; --research-muted: #5c6474; --research-line: #e5e8ee; --research-accent: #3273dc; }
+    body { color: var(--research-ink); background: #fff; }
+    .research-page { width: min(100% - 2rem, 900px); margin: 0 auto; padding: 4.5rem 0 5rem; }
+    .research-header { padding-bottom: 3rem; border-bottom: 1px solid var(--research-line); }
+    .research-header .title, .research-page .title, .research-section-title, .research-item h4, .research-item strong, .research-summary th { color: var(--research-ink); }
+    .research-header .title { margin-bottom: 1rem; }
+    .research-lede, .research-intro p, .research-landscape p, .research-topics, .research-original, .research-footer { color: var(--research-muted); font-size: 1rem; line-height: 1.8; }
+    .research-lede { max-width: 52rem; font-size: 1.1rem; }
+    .research-links { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 1.6rem; }
+    .research-nav-icon { display: inline-flex; align-items: center; justify-content: center; width: 1.1em; height: 1.1em; margin-right: 0.35rem; }
+    .research-nav-icon svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .research-nav-icon svg.research-github-mark { fill: currentColor; stroke: none; }
+    .research-intro, .research-list, .research-summary, .research-landscape, .research-topics, .research-original { padding-top: 3rem; }
+    .research-intro, .research-summary, .research-landscape, .research-topics, .research-original { border-top: 1px solid var(--research-line); }
+    .research-intro p, .research-landscape p { margin-bottom: 1rem; }
+    .research-source-links, .research-topic-list { display: flex; flex-wrap: wrap; gap: 0.55rem; align-items: center; }
+    .research-intro a, .research-landscape a, .research-topics a, .research-original a, .research-footer a { color: var(--research-accent); text-decoration: underline; text-underline-offset: 0.18em; }
+    .research-section { margin-top: 3.7rem; counter-reset: research-paper; }
+    .research-section-title { margin: 0 0 0.4rem; padding: 0.75rem 0 0.75rem 1rem; border-left: 4px solid var(--research-accent); border-bottom: 1px solid var(--research-line); font-size: 1.6rem; line-height: 1.35; }
+    .research-item { counter-increment: research-paper; padding: 1.8rem 0 1.9rem 2.6rem; border-bottom: 1px solid var(--research-line); }
+    .research-item h4 { position: relative; margin-bottom: 0.35rem; font-size: 1.18rem; line-height: 1.45; }
+    .research-item h4::before { content: counter(research-paper) "."; position: absolute; left: -2.6rem; top: 0.08rem; width: 1.75rem; color: var(--research-accent); font-size: 0.95rem; font-weight: 700; text-align: right; }
+    .research-item h4 a { color: inherit; text-decoration: none; }
+    .research-item h4 a:hover { text-decoration: underline; text-underline-offset: 0.18em; }
+    .research-meta { margin-bottom: 1rem; color: var(--research-muted); font-size: 0.95rem; line-height: 1.6; }
+    .research-item > p { margin-bottom: 0.9rem; color: var(--research-muted); font-size: 1rem; line-height: 1.8; }
+    .research-summary .table-container { overflow-x: auto; }
+    .research-summary table { color: var(--research-muted); font-size: 0.94rem; }
+    .research-summary th { white-space: nowrap; }
+    .research-summary td, .research-summary th { border-color: var(--research-line); vertical-align: top; }
+    .research-bibtex { margin-top: 1.5rem; padding: 1.2rem 1.3rem; overflow-x: auto; border: 1px solid var(--research-line); border-radius: 0.5rem; background: #fafbfc; color: var(--research-ink); font-size: 0.85rem; line-height: 1.65; }
+    .research-footer { padding-top: 2.5rem; border-top: 1px solid var(--research-line); margin-top: 3rem; }
+    @media (max-width: 600px) { .research-page { width: min(100% - 1.25rem, 900px); padding-top: 2.5rem; } .research-header { padding-bottom: 2.25rem; } .research-lede { font-size: 1rem; } .research-section-title { font-size: 1.3rem; } .research-item { padding-left: 2.2rem; } .research-item h4 { font-size: 1.1rem; } .research-item h4::before { left: -2.2rem; width: 1.45rem; } }
+  </style>
+</body>
+</html>
